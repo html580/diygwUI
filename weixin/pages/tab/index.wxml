@@ -1,0 +1,93 @@
+<view class="container">
+	<view class="flex diygw-col-24 flex-direction-column">
+		<view class="diygw-tabs text-center solid-bottom justify-center not-border">
+			<view class="diygw-tab-item {{index==tabsIndex?'text-green cur':''}}" wx:for="{{tabsDatas}}" wx:for-item="item" wx:for-index="index" data-key="index" data-index="{{index}}" catchtap="changeTabs"> {{item.text}} </view>
+		</view>
+		<view wx:if="{{tabsIndex==0}}" class="flex-sub flex-direction-column padding-xs">
+			<rich-text class="diygw-col-24" nodes="{{text}}"></rich-text>
+		</view>
+		<view wx:if="{{tabsIndex==1}}" class="flex-sub flex-direction-column padding-xs">
+			<view class="flex diygw-col-24">
+				<view class="diygw-avatar radius bg-none" style="background-image: url(/static/170cf2a909aa.jpg)"> </view>
+			</view>
+		</view>
+		<view wx:if="{{tabsIndex==2}}" class="flex-sub flex-direction-column padding-xs"> </view>
+		<view wx:if="{{tabsIndex==3}}" class="flex-sub flex-direction-column padding-xs"> </view>
+	</view>
+	<view class="flex diygw-col-24 flex-direction-column">
+		<view class="diygw-tabs text-center solid-bottom justify-between green not-border">
+			<view class="diygw-tab-item {{index==tabs1Index?' cur':''}}" wx:for="{{tabs1Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" data-index="{{index}}" catchtap="changeTabs1"> {{item.text}} </view>
+		</view>
+		<view wx:if="{{tabs1Index==0}}" class="flex-sub flex-direction-column padding-xs">
+			<rich-text class="diygw-col-24" nodes="{{text1}}"></rich-text>
+		</view>
+		<view wx:if="{{tabs1Index==1}}" class="flex-sub flex-direction-column padding-xs">
+			<view class="flex diygw-col-24">
+				<view class="diygw-avatar radius bg-none" style="background-image: url(/static/170cf2a909aa.jpg)"> </view>
+			</view>
+		</view>
+		<view wx:if="{{tabs1Index==2}}" class="flex-sub flex-direction-column padding-xs"> </view>
+		<view wx:if="{{tabs1Index==3}}" class="flex-sub flex-direction-column padding-xs"> </view>
+	</view>
+	<view class="flex diygw-col-24 flex-direction-column">
+		<view class="diygw-tabs text-center solid-bottom justify-around gradual-orange not-border">
+			<view class="diygw-tab-item {{index==tabs2Index?' cur':''}}" wx:for="{{tabs2Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" data-index="{{index}}" catchtap="changeTabs2"> {{item.text}} </view>
+		</view>
+		<view wx:if="{{tabs2Index==0}}" class="flex-sub flex-direction-column padding-xs">
+			<rich-text class="diygw-col-24" nodes="{{text2}}"></rich-text>
+		</view>
+		<view wx:if="{{tabs2Index==1}}" class="flex-sub flex-direction-column padding-xs">
+			<view class="flex diygw-col-24">
+				<view class="diygw-avatar radius bg-none" style="background-image: url(/static/170cf2a909aa.jpg)"> </view>
+			</view>
+		</view>
+		<view wx:if="{{tabs2Index==2}}" class="flex-sub flex-direction-column padding-xs"> </view>
+		<view wx:if="{{tabs2Index==3}}" class="flex-sub flex-direction-column padding-xs"> </view>
+	</view>
+	<view class="flex diygw-col-24 flex-direction-row">
+		<view class="diygw-tabs text-center solid-right justify-around green not-border">
+			<view class="diygw-tab-item {{index==tabs3Index?' cur':''}}" wx:for="{{tabs3Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" data-index="{{index}}" catchtap="changeTabs3"> {{item.text}} </view>
+		</view>
+		<view wx:if="{{tabs3Index==0}}" class="flex-sub flex-direction-column padding-xs">
+			<rich-text class="diygw-col-24" nodes="{{text3}}"></rich-text>
+		</view>
+		<view wx:if="{{tabs3Index==1}}" class="flex-sub flex-direction-column padding-xs">
+			<view class="flex diygw-col-24">
+				<view class="diygw-avatar radius bg-none" style="background-image: url(/static/170cf2a909aa.jpg)"> </view>
+			</view>
+		</view>
+		<view wx:if="{{tabs3Index==2}}" class="flex-sub flex-direction-column padding-xs"> </view>
+		<view wx:if="{{tabs3Index==3}}" class="flex-sub flex-direction-column padding-xs"> </view>
+	</view>
+	<view class="flex diygw-col-24 flex-direction-row-reverse">
+		<view class="diygw-tabs text-center solid-left justify-around green not-border">
+			<view class="diygw-tab-item {{index==tabs4Index?' cur':''}}" wx:for="{{tabs4Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" data-index="{{index}}" catchtap="changeTabs4"> {{item.text}} </view>
+		</view>
+		<view wx:if="{{tabs4Index==0}}" class="flex-sub flex-direction-column padding-xs">
+			<rich-text class="diygw-col-24" nodes="{{text4}}"></rich-text>
+		</view>
+		<view wx:if="{{tabs4Index==1}}" class="flex-sub flex-direction-column padding-xs">
+			<view class="flex diygw-col-24">
+				<view class="diygw-avatar radius bg-none" style="background-image: url(/static/170cf2a909aa.jpg)"> </view>
+			</view>
+		</view>
+		<view wx:if="{{tabs4Index==2}}" class="flex-sub flex-direction-column padding-xs"> </view>
+		<view wx:if="{{tabs4Index==3}}" class="flex-sub flex-direction-column padding-xs"> </view>
+	</view>
+	<view class="flex diygw-col-24 flex-direction-column-reverse">
+		<view class="diygw-tabs text-center solid-top justify-around green not-border">
+			<view class="diygw-tab-item {{index==tabs5Index?' cur':''}}" wx:for="{{tabs5Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" data-index="{{index}}" catchtap="changeTabs5"> {{item.text}} </view>
+		</view>
+		<view wx:if="{{tabs5Index==0}}" class="tabs5-content flex-sub flex-direction-column padding-xs">
+			<rich-text class="diygw-col-24" nodes="{{text5}}"></rich-text>
+		</view>
+		<view wx:if="{{tabs5Index==1}}" class="tabs5-content flex-sub flex-direction-column padding-xs">
+			<view class="flex diygw-col-24">
+				<view class="diygw-avatar radius bg-none" style="background-image: url(/static/170cf2a909aa.jpg)"> </view>
+			</view>
+		</view>
+		<view wx:if="{{tabs5Index==2}}" class="tabs5-content flex-sub flex-direction-column padding-xs"> </view>
+		<view wx:if="{{tabs5Index==3}}" class="tabs5-content flex-sub flex-direction-column padding-xs"> </view>
+	</view>
+	<view class="clearfix"></view>
+</view>

@@ -1,0 +1,84 @@
+/* ==================
+          头像
+ ==================== */
+.diygw-avatar {
+  font-variant: small-caps;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
+  color: var(--white);
+  white-space: nowrap;
+  position: relative;
+  width: 96rpx;
+  height: 96rpx;
+  background-size: cover;
+  background-position: center;
+  vertical-align: middle;
+  font-size: 32rpx;
+  
+  [class*="diy-icon-"]{
+    font-size: 56rpx;
+  }
+  &.bg-none{
+    background-color: inherit;
+  }
+
+}
+
+$avatar-sizes: (
+	"none": 64rpx,
+	"xs": 48rpx,
+	"sm": 64rpx,
+	"md": 96rpx,
+	"lg": 128rpx,
+	"xl": 200rpx,
+);
+
+$avatar-font-sizes: (
+	"none": 32rpx,
+	"xs": 24rpx,
+	"sm": 32rpx,
+	"md": 48rpx,
+	"lg": 72rpx,
+	"xl": 100rpx,
+);
+
+@mixin set-avatar($type) {
+  .diygw-avatar.#{$type} {
+    width: map-get($avatar-sizes, $type);
+    height: map-get($avatar-sizes, $type);
+    font-size: map-get($avatar-font-sizes, $type);
+    
+    [class*="diy-icon-"]{
+        font-size: map-get($avatar-font-sizes, $type);
+    }
+  }
+}
+
+@each $type in $diygw-sizes {
+  @include set-avatar($type);
+}
+
+.diygw-avatar .avatar-text {
+  font-size: 0.4em;
+}
+
+.diygw-avatar-group {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  padding: 0 10rpx 0 40rpx;
+  display: inline-block;
+}
+
+.diygw-avatar-group .diygw-avatar {
+  margin-left: -30rpx;
+  border: 4rpx solid var(--ghostWhite);
+  vertical-align: middle;
+}
+
+.diygw-avatar-group .diygw-avatar.sm {
+  margin-left: -20rpx;
+  border: 1rpx solid var(--ghostWhite);
+}

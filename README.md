@@ -1,37 +1,52 @@
 # diygwUI
 
 #### 介绍
-DIY官网可视化工具做好的可视化拖拽开发工具无须编程、零代码基础、所见即所得设计工具支持轻松在线可视化导出微信小程序、支付宝小程序、头条小程序、H5、WebApp、UNIAPP等源码
+DIY官网可视化工具做好的可视化拖拽开发工具无须编程、零代码基础、所见即所得设计工具支持轻松在线可视化导出微信小程序、支付宝小程序、头条小程序、H5、WebApp、UNIAPP等源码 支持组件库,高颜值,卡片,列表,轮播图,导航栏,按钮,标签,表单,单选,复选,下拉选择,多层选择,级联选择,开关,时间轴,模态框,步骤条,头像,进度条等
+感谢colorui、uniapp等第三方组件库的支持
+丰富的按钮点击事件供选择
 
-#### 软件架构
-软件架构说明
+#### 文件说明
+uniapp -- 对应Uniapp多端生成源码
+weixin -- 生成微信小程序原生源码
+alipay -- 生成支持宝小程序原生源码
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+更多设计前往https://www.diygw.com 设计
 
 
-#### 特技
+#### 扫码体验
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+在线演示例子：[组件库演示](https://uniapp.diygw.com) https://uniapp.diygw.com
+扫码体验
+[![](https://libs.diygw.com/upload/uniapp.png)](https://libs.diygw.com/upload/uniapp.png)
+
+在线演示例子：[仿应用市场例子](https://uniapp.diygw.com/app/#/)  https://uniapp.diygw.com/app/#/
+
+扫码体验
+[![](https://libs.diygw.com/upload/uniapp-app.png)](https://libs.diygw.com/upload/uniapp-app.png)
+
+#### 项目截图
+[![](https://libs.diygw.com/upload/exporttype.png)](https://libs.diygw.com/upload/exporttype.png)
+[![](https://libs.diygw.com/upload/1.png)](https://libs.diygw.com/upload/1.png)
+[![](https://libs.diygw.com/upload/2.png)](https://libs.diygw.com/upload/2.png)
+[![](https://libs.diygw.com/upload/3.png)](https://libs.diygw.com/upload/3.png)
+[![](https://libs.diygw.com/upload/4.png)](https://libs.diygw.com/upload/4.png)
+[![](https://libs.diygw.com/upload/5.png)](https://libs.diygw.com/upload/5.png)
+[![](https://libs.diygw.com/upload/6.png)](https://libs.diygw.com/upload/6.png)
+[![](https://libs.diygw.com/upload/7.png)](https://libs.diygw.com/upload/7.png)
+[![](https://libs.diygw.com/upload/8.png)](https://libs.diygw.com/upload/8.png)
+[![](https://libs.diygw.com/upload/9.png)](https://libs.diygw.com/upload/9.png)
+[![](https://libs.diygw.com/upload/10.png)](https://libs.diygw.com/upload/10.png)
+[![](https://libs.diygw.com/upload/11.png)](https://libs.diygw.com/upload/11.png)
+[![](https://libs.diygw.com/upload/12.png)](https://libs.diygw.com/upload/12.png)
+[![](https://libs.diygw.com/upload/1.jpg)](https://libs.diygw.com/upload/1.jpg)
+[![](https://libs.diygw.com/upload/2.jpg)](https://libs.diygw.com/upload/2.jpg)
+[![](https://libs.diygw.com/upload/3.jpg)](https://libs.diygw.com/upload/3.jpg)
+[![](https://libs.diygw.com/upload/4.jpg)](https://libs.diygw.com/upload/4.jpg)
+[![](https://libs.diygw.com/upload/5.jpg)](https://libs.diygw.com/upload/5.jpg)
+[![](https://libs.diygw.com/upload/6.jpg)](https://libs.diygw.com/upload/6.jpg)
+[![](https://libs.diygw.com/upload/7.jpg)](https://libs.diygw.com/upload/7.jpg)
+
+
+更多版本兼容性在持续完善中
+
+

@@ -1,0 +1,44 @@
+{
+	"pages": ["pages/index/index", "pages/layout/index", "pages/button/index", "pages/avatar/index", "pages/tag/index", "pages/title/index", "pages/grid/index", "pages/list/index", "pages/image/index", "pages/swiper/index", "pages/timeline/index", "pages/steps/index", "pages/floatbar/index", "pages/form/index", "pages/about/index", "pages/compoment/index", "pages/modal/index", "pages/tab/index", "pages/buttons/index", "pages/rate/index", "pages/progress/index", "pages/webview/index"],
+	"usingComponents": {
+		"diy-navbar": "/components/diy-navbar/diy-navbar",
+		"diy-noticebar": "/components/diy-noticebar/diy-noticebar"
+	},
+	"window": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "UNIAPPUI",
+		"navigationBarBackgroundColor": "#07c160"
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#08c261",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/grid1c.png",
+				"selectedIconPath": "static/grid1.png",
+				"text": "元素"
+			},
+			{
+				"pagePath": "pages/compoment/index",
+				"iconPath": "static/grid2c.png",
+				"selectedIconPath": "static/grid2.png",
+				"text": "组件"
+			},
+			{
+				"pagePath": "pages/form/index",
+				"iconPath": "static/grid3c.png",
+				"selectedIconPath": "static/grid3.png",
+				"text": "表单"
+			},
+			{
+				"pagePath": "pages/about/index",
+				"iconPath": "static/grid4c.png",
+				"selectedIconPath": "static/grid4.png",
+				"text": "关于"
+			}
+		]
+	}
+}

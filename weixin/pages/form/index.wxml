@@ -1,0 +1,206 @@
+<view class="container">
+	<form bindsubmit="submitForm" bindreset="resetForm" class="flex diygw-form diygw-col-24">
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title"> 单选文本 </view>
+			<view class="input">
+				<input class="flex1" name="input" :value="input" placeholder="请输入提示信息" />
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24 noborder">
+			<view class="title"> 多行文本 </view>
+			<view class="input">
+				<textarea class="flex1" name="textarea" :value="textarea" placeholder="请输入提示信息"></textarea>
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title title-mb5"> 标题 </view>
+			<view class="input">
+				<view data-checked="{{switched}}" catchtap="changeSwitched">
+					<checkbox name="" checked="{{switched}}" hidden="true" />
+					<view class="diygw-switch-box {{switched?'checked':''}}"></view>
+				</view>
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title title-mb5"> 复选 </view>
+			<view class="input">
+				<checkbox-group class="flex flex-wrap check-green diygw-col-24 justify-between" bindchange="changeCheckbox" name="checkbox">
+					<label wx:for="{{checkboxDatas}}" wx:for-item="item" wx:for-index="index" data-key="index" class="diygw-checkbox-label">
+						<checkbox class="diygw-checkbox" value="{{item.value}}" checked="{{item.checked}}"> </checkbox>
+						<view class="diygw-icon-checkbox {{item.checked?'checked':''}}"></view>
+						<view> {{ item.label }} </view>
+					</label>
+				</checkbox-group>
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title title-mb5"> 单选 </view>
+			<view class="input">
+				<radio-group class="flex flex-wrap check-green diygw-col-24 justify-between" bindchange="changeRadio" name="radio">
+					<label wx:for="{{radioDatas}}" wx:for-item="item" wx:for-index="index" class="diygw-radio-label">
+						<radio class="diygw-radio" value="{{item.value}}" checked="{{item.checked}}"> </radio>
+						<view class="diygw-icon-radio {{item.checked?'checked':''}}"></view>
+						<view class="diygw-checkbox-text"> {{ item.label }} </view>
+					</label>
+				</radio-group>
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title"> 多层选择 </view>
+			<view class="input flex">
+				<picker mode="multiSelector" name="pickerview" bindcolumnchange="changePickerview" value="{{pickerviewIndex}}" range="{{pickerviewDatas}}">
+					<view class="uni-input"> {{pickerviewDatas[0][pickerviewIndex[0]]}}, {{pickerviewDatas[1][pickerviewIndex[1]]}} </view>
+				</picker>
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title"> 级联选择 </view>
+			<view class="input">
+				<picker mode="multiSelector" name="selects" bindcolumnchange="changeSelects" value="{{selectsIndex}}" range="{{selectsDatas}}">
+					<view class="uni-input"> {{selectsDatas[0][selectsIndex[0]]}}, {{selectsDatas[1][selectsIndex[1]]}} </view>
+				</picker>
+			</view>
+		</view>
+		<view class="diygw-form-item diygw-col-24">
+			<view class="title"> 标题 </view>
+			<view class="input flex">
+				<view class="upload" wx:for="{{uploadDatas}}" wx:for-item="item" wx:for-index="index">
+					<image class="image" catchtap="previewUpload" src="{{item}}" mode="aspectFill"></image>
+					<text class="diy-icon-close" catchtap="uploadDatas.splice(index,1)"></text>
+				</view>
+				<view class="upload" catchtap="uploadUpload">
+					<text class="diy-icon-cameraadd"></text>
+				</view>
+				<input hidden value="{{upload}}" name="upload" maxlength="-1" />
+			</view>
+		</view>
+		<view class="flex diygw-col-24">
+			<button style="" form-type="reset" class="diygw-btn red radius flex1 margin-xs">重置</button>
+			<button style="" form-type="submit" class="diygw-btn green radius flex1 margin-xs">提交</button>
+		</view>
+	</form>
+	<view class="diygw-form-item diygw-col-24 flex-direction-column">
+		<view class="title diygw-col-24"> 标题换行 </view>
+		<view class="input">
+			<input class="flex1" name="input2" :value="input2" placeholder="请输入提示信息" />
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 flex-direction-column noborder">
+		<view class="title diygw-col-24"> 输入带边框 </view>
+		<view class="input solid">
+			<input class="flex1" name="input3" :value="input3" placeholder="请输入提示信息" />
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 noborder">
+		<view class="title"> 输入带边框 </view>
+		<view class="input solid">
+			<input class="flex1" name="input4" :value="input4" placeholder="请输入提示信息" />
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 noborder">
+		<view class="title"> 带后缀按钮 </view>
+		<view class="input">
+			<input class="flex1" name="input5" :value="input5" placeholder="请输入提示信息" />
+			<view class="diygw-tag radius-xs green"> 标签 </view>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 noborder">
+		<view class="title"> 带后缀图标 </view>
+		<view class="input solid">
+			<input class="flex1" name="input8" :value="input8" placeholder="请输入提示信息" />
+			<text class="diy-icon-settings" style="color: #07c160"></text>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 noborder">
+		<view class="title"> 带后缀图标 </view>
+		<view class="input solid">
+			<input class="flex1" name="input6" :value="input6" placeholder="请输入提示信息" />
+			<image src="/static/639e740335e7.jpg" class="icon radius"></image>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 flex-direction-column">
+		<view class="title title-mb5 text-red diygw-col-24"> 可改颜色 </view>
+		<view class="input">
+			<radio-group class="flex flex-wrap check-red diygw-col-24 justify-between" bindchange="changeRadio1" name="radio1">
+				<label wx:for="{{radio1Datas}}" wx:for-item="item" wx:for-index="index" class="diygw-radio-label">
+					<radio class="diygw-radio" value="{{item.value}}" checked="{{item.checked}}"> </radio>
+					<view class="diygw-icon-radio {{item.checked?'checked':''}}"></view>
+					<view class="diygw-checkbox-text"> {{ item.label }} </view>
+				</label>
+			</radio-group>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24">
+		<view class="title title-mb5 text-red"> 可改颜色 </view>
+		<view class="input">
+			<radio-group class="flex flex-wrap check-red diygw-col-24 justify-between" bindchange="changeRadio2" name="radio2">
+				<label wx:for="{{radio2Datas}}" wx:for-item="item" wx:for-index="index" class="diygw-radio-label">
+					<radio class="diygw-radio" value="{{item.value}}" checked="{{item.checked}}"> </radio>
+					<view class="diygw-icon-radio {{item.checked?'checked':''}}"></view>
+					<view class="diygw-checkbox-text"> {{ item.label }} </view>
+				</label>
+			</radio-group>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24">
+		<view class="title title-mb5 text-blue"> 可改颜色 </view>
+		<view class="input">
+			<radio-group class="flex flex-wrap check-blue diygw-col-24 justify-between" bindchange="changeRadio3" name="radio3">
+				<label wx:for="{{radio3Datas}}" wx:for-item="item" wx:for-index="index" class="diygw-radio-label">
+					<radio class="diygw-radio" value="{{item.value}}" checked="{{item.checked}}"> </radio>
+					<view class="diygw-icon-radio {{item.checked?'checked':''}}"></view>
+					<view class="diygw-checkbox-text"> {{ item.label }} </view>
+				</label>
+			</radio-group>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24">
+		<view class="title title-mb5 text-blue"> 可垂直 </view>
+		<view class="input">
+			<radio-group class="flex flex-wrap check-blue diygw-col-24 flex-direction-column justify-between" bindchange="changeRadio4" name="radio4">
+				<label wx:for="{{radio4Datas}}" wx:for-item="item" wx:for-index="index" class="diygw-radio-label">
+					<radio class="diygw-radio" value="{{item.value}}" checked="{{item.checked}}"> </radio>
+					<view class="diygw-icon-radio {{item.checked?'checked':''}}"></view>
+					<view class="diygw-checkbox-text"> {{ item.label }} </view>
+				</label>
+			</radio-group>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24 flex-direction-column">
+		<view class="title title-mb5 text-grey diygw-col-24"> 标题换行 </view>
+		<view class="input">
+			<checkbox-group class="flex flex-wrap check-grey diygw-col-24 justify-between" bindchange="changeCheckbox1" name="checkbox1">
+				<label wx:for="{{checkbox1Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" class="diygw-checkbox-label">
+					<checkbox class="diygw-checkbox" value="{{item.value}}" checked="{{item.checked}}"> </checkbox>
+					<view class="diygw-icon-checkbox {{item.checked?'checked':''}}"></view>
+					<view> {{ item.label }} </view>
+				</label>
+			</checkbox-group>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24">
+		<view class="title title-mb5 text-black"> 标题 </view>
+		<view class="input">
+			<checkbox-group class="flex flex-wrap check-black diygw-col-24 justify-between" bindchange="changeCheckbox2" name="checkbox2">
+				<label wx:for="{{checkbox2Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" class="diygw-checkbox-label">
+					<checkbox class="diygw-checkbox" value="{{item.value}}" checked="{{item.checked}}"> </checkbox>
+					<view class="diygw-icon-checkbox {{item.checked?'checked':''}}"></view>
+					<view> {{ item.label }} </view>
+				</label>
+			</checkbox-group>
+		</view>
+	</view>
+	<view class="diygw-form-item diygw-col-24">
+		<view class="title title-mb5 text-black"> 标题 </view>
+		<view class="input">
+			<checkbox-group class="flex flex-wrap check-black diygw-col-24 flex-direction-column justify-between" bindchange="changeCheckbox3" name="checkbox3">
+				<label wx:for="{{checkbox3Datas}}" wx:for-item="item" wx:for-index="index" data-key="index" class="diygw-checkbox-label">
+					<checkbox class="diygw-checkbox" value="{{item.value}}" checked="{{item.checked}}"> </checkbox>
+					<view class="diygw-icon-checkbox {{item.checked?'checked':''}}"></view>
+					<view> {{ item.label }} </view>
+				</label>
+			</checkbox-group>
+		</view>
+	</view>
+	<view class="clearfix"></view>
+</view>

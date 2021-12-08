@@ -1,0 +1,90 @@
+<view class="container">
+	<view class="flex diygw-col-24">
+		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true" style="height: 150px">
+			<swiper-item>
+				<image src="/static/pic1.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 轮播带标题 </view>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic2.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 滑块二 </view>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic3.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 滑块三 </view>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="flex diygw-col-24 swiper1-clz">
+		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" circular="true" style="height: 150px">
+			<swiper-item>
+				<image src="/static/pic1.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 轮播带标题 </view>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic2.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 滑块二 </view>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic3.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 滑块三 </view>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="flex diygw-col-24 swiper2-clz">
+		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" vertical="true" circular="true" style="height: 150px">
+			<swiper-item>
+				<image src="/static/pic1.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 轮播带标题垂直方向 </view>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic2.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 滑块二 </view>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic3.jpg" class="slide-image"></image>
+				<view class="swiper-slider-title"> 滑块三 </view>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="flex diygw-col-24 swiper3-clz">
+		<swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" vertical="true" circular="true" style="height: 150px">
+			<swiper-item>
+				<image src="/static/pic1.jpg" class="slide-image"></image>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic2.jpg" class="slide-image"></image>
+			</swiper-item>
+			<swiper-item>
+				<image src="/static/pic3.jpg" class="slide-image"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="flex diygw-col-24 swiper4-clz">
+		<swiper class="swiper" interval="3000" circular="true" style="height: 40px">
+			<swiper-item>
+				<view class="swiper-slider-title not-mask"> 轮播标题水平方向 </view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-slider-title not-mask"> 滑块二 </view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-slider-title not-mask"> 滑块三 </view>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="flex diygw-col-24 swiper5-clz">
+		<swiper class="swiper" interval="3000" vertical="true" circular="true" style="height: 40px">
+			<swiper-item>
+				<view class="swiper-slider-title not-mask"> 轮播标题垂直方向 </view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-slider-title not-mask"> 滑块二 </view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-slider-title not-mask"> 滑块三 </view>
+			</swiper-item>
+		</swiper>
+	</view>
+	<view class="clearfix"></view>
+</view>

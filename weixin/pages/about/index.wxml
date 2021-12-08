@@ -1,0 +1,4 @@
+<view class="container">
+	<rich-text class="diygw-col-24 text2-clz diygw-text-lg" nodes="{{text2}}"></rich-text>
+	<view class="clearfix"></view>
+</view>
