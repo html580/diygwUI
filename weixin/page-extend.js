@@ -1,14 +1,12 @@
-
-
 /**
- *
+ * create by: 邓志锋 <280160522@qq.com> <https://www.diygw.com> DIYGW可视化设计一键生成源码
  * Page扩展函数
- *
  * @param {*} Page 原生Page
  */
 import Tools from 'common/Tools.js'
 import HttpService from 'common/HttpService.js'
 import Session from 'common/Session.js'
+import ValidateClazz from 'common/Validate'
 
 const pageExtend = Page => {
     return object => {
@@ -30,12 +28,13 @@ const pageExtend = Page => {
         }
 
         object.$tools = new Tools()
-        object.$request = new HttpService()
+        object.$http = new HttpService()
         object.$session = Session
 
         object.navigateTo = function (e) {
             let thiz = this
-            let { id, type } = e.currentTarget.dataset
+	          let dataset = e.currentTarget?e.currentTarget.dataset:e
+            let { id, type } = dataset
             if (type == 'openmodal') {
                 this.setData({
                     [id]: 'show'
@@ -45,24 +44,24 @@ const pageExtend = Page => {
                     [id]: ''
                 })
             } else if (type == 'page' || type == 'inner' || type == 'href') {
-                this.$tools.navigateTo(e.currentTarget.dataset.url, e.currentTarget.dataset);
+                this.$tools.navigateTo(dataset.url, dataset);
             } else if (type == 'submit') {
                 this.showToast('将执行表单提交动作')
             } else if (type == 'reset') {
                 this.showToast('将执行表单重置动作')
             } else if (type == 'tip') {
-                this.showToast(e.currentTarget.dataset.tip)
+                this.showToast(dataset.tip)
             } else if (type == 'confirm') {
                 wx.showModal({
                     title: '提示',
-                    content: e.currentTarget.dataset.tip,
+                    content: dataset.tip,
                     showCancel: !1,
                 });
             } else if (type == 'daohang') {
                 wx.openLocation({
-                    latitude: Number(e.currentTarget.dataset.lat),
-                    longitude: Number(e.currentTarget.dataset.lng),
-                    address: e.currentTarget.dataset.address,
+                    latitude: Number(dataset.lat),
+                    longitude: Number(dataset.lng),
+                    address: dataset.address,
                     success: function () {
                         console.log('success');
                     }
@@ -70,28 +69,34 @@ const pageExtend = Page => {
             } else if (type == 'phone') {
                 this.$tools.makePhoneCall(e)
             } else if(type=='previewImage'||type=='preview'){
-        		wx.previewImage({
-        			current: this.$tools.renderImage(e.currentTarget.dataset.img), // 当前显示图片的http链接
-        			urls: [this.$tools.renderImage(e.currentTarget.dataset.img)] // 需要预览的图片http链接列表
-        		})
-        	} else if (type == 'copy') {
+                wx.previewImage({
+                    current: this.$tools.renderImage(dataset.img), // 当前显示图片的http链接
+                    urls: [this.$tools.renderImage(dataset.img)] // 需要预览的图片http链接列表
+                })
+            } else if (type == 'copy') {
 
                 wx.setClipboardData({
-                    data: e.currentTarget.dataset.copy,
+                    data: dataset.copy,
                     showToast: false,
                     success: function () {
-                        thiz.showToast(e.currentTarget.dataset.tip || '复制成功', 'none')
+                        thiz.showToast(dataset.tip || '复制成功', 'none')
                     }
                 });
             } else if (type == 'xcx') {
                 wx.navigateToMiniProgram({
-                    appId: e.currentTarget.dataset.appid,
-                    path: e.currentTarget.dataset.path,
+                    appId: dataset.appid,
+                    path: dataset.path,
                     success(res) {
                         // 打开成功
                     }
                 })
-            } else {
+            } else if(typeof thiz[type]=='function'){
+        		if(type.endsWith("Api")){
+        			thiz[type]()
+        		}else{
+        			thiz[type](dataset)
+        		}
+        	}else {
                 thiz.showToast(type + '类型有待实现')
             }
         }
@@ -110,7 +115,7 @@ const pageExtend = Page => {
                 icon: icon ? icon : 'none'
             })
         }
-
+        object.Validate = (rules, messages) => new ValidateClazz(rules, messages)
         object.getPickerChildren = function (data, chindInex1, childIndex2) {
             if (chindInex1 != null && data[chindInex1] && data[chindInex1].children && data[chindInex1].children) {
                 let children = data[chindInex1].children
@@ -138,8 +143,32 @@ const pageExtend = Page => {
                 return []
             }
         }
+        
+        object.changeValue = function(e){
+            const { key } = e.currentTarget.dataset;
+            if(typeof e.detail=='object' && this.$tools.isArray(e.detail)){
+                this.setData({ [key]: e.detail });
+            }else if(typeof e.detail=='object' && e.detail.hasOwnProperty('value')){
+                this.setData({ [key]: e.detail.value });
+            }else{
+                this.setData({ [key]: e.detail });
+            }
+        }
+        //根据field获取数据
+        object.getDiygwFiledData = function(thiz,field){
+            // 通过正则表达式  查找路径数据
+            const regex = /([\w$]+)|\[(:\d)\]/g
+            const patten = field.match(regex)
+            let result = thiz.data // 指向调用的数据 如data
+            // 遍历路径  逐级查找  最后一级用于直接赋值
+            for (let i = 0; i < patten.length - 1; i++) {
+            let key = patten[i]
+            result = result[key]
+            }
+            return result[patten[patten.length - 1]]
+        }
 
-        object.uploadImage = function (thiz, field) {
+        object.uploadImage = function (thiz, field,fieldData) {
             wx.chooseImage({
                 sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
                 sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
@@ -148,17 +177,18 @@ const pageExtend = Page => {
                     let tempFilePaths = res.tempFilePaths;
                     for (let i = 0; i < tempFilePaths.length; i++) {
                         wx.uploadFile({
-                            url: thiz.$request.setUrl('/data/file.html'), //仅为示例，非真实的接口地址
+                            url: thiz.$http.setUrl('/data/file.html'), //仅为示例，非真实的接口地址
                             filePath: tempFilePaths[0],
                             name: 'file',
                             success: function (res) {
                                 let data = thiz.$tools.fromJson(res.data);
                                 let url = thiz.$tools.renderImage(data.url);
-                                let files = thiz[field + 'Datas'].concat(url);
+                                let files = thiz.getDiygwFiledData(thiz,fieldData).concat(url);
                                 thiz.setData({
-                                    [field + 'Datas']: files,
+                                    [fieldData]: files,
                                     [field]: (files || []).join(',').replace(/^[]/, ''),
                                 });
+                                
                             },
                         });
                     }

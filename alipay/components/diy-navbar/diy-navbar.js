@@ -39,6 +39,10 @@ Component({
       type: [Boolean, String],
       value: false
     },
+    backUrl: {
+      type: String,
+      value: ''
+    }, 
     backdelta:{
       type:Number,
       value:0
@@ -98,21 +102,19 @@ Component({
    */
   methods: {
     BackPage() {
-      if(this.data.isHome){
-        my.reLaunch({
-          url: '/diygw_scrm/pages/index/index',
-        })
-        return;
-      }
-      if(this.data.backdelta){
-        my.navigateBack({
-          delta: this.data.backdelta
-        });
-      }else{
-        my.navigateBack({
-          delta: 1
-        });
-      }
+        if(this.data.backUrl){
+           my.redirectTo({
+             url: this.data.backUrl
+           })
+        }else if(this.data.backdelta){
+          my.navigateBack({
+            delta: this.data.backdelta
+          });
+        }else{
+          my.navigateBack({
+            delta: 1
+          });
+        } 
     },
     BackHome() {
       if(getApp().globalData.homePage){

@@ -72,6 +72,9 @@
   align-items: center;
   justify-content: center;
 }
+.diy-notice-item{
+	white-space: nowrap;
+}
 .diy-notice-item + .diy-notice-item {
   margin-left: 20rpx;
 }

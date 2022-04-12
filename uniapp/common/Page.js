@@ -1,14 +1,26 @@
 import ValidateClazz from './Validate'
 export const Validate = (rules, messages) => new ValidateClazz(rules, messages)
 
+
 export function setData(dataset) {
-	for (let key in dataset) {
-		this[key] = dataset[key]
+	for (let field in dataset) {
+		// 通过正则表达式  查找路径数据
+		const regex = /([\w$]+)|\[(:\d)\]/g
+		const patten = field.match(regex)
+		let result = this // 指向调用的数据 如data
+		// 遍历路径  逐级查找  最后一级用于直接赋值
+		for (let i = 0; i < patten.length - 1; i++) {
+		  const key = patten[i]
+		  result = result[key]
+		}
+		result[patten[patten.length - 1]] = dataset[field] 
 	}
 }
 
 export function navigateTo(e) {
-	let  {id,type}= e.currentTarget.dataset
+    let dataset = e.currentTarget?e.currentTarget.dataset:e
+	let  {id,type}= dataset
+	
 	// #ifndef VUE3
 	let thiz = getApp().globalData.currentPage 
 	// #endif
@@ -20,24 +32,24 @@ export function navigateTo(e) {
 	}else if(type == 'closemodal'){
 		thiz[id] = ""
 	}else if(type == 'page'||type=='inner'||type=='href'){
-		thiz.$tools.navigateTo(e.currentTarget.dataset.url, e.currentTarget.dataset);
+		thiz.$tools.navigateTo(dataset.url, dataset);
 	}else if(type=='submit'){
 		showToast('将执行表单提交动作')
 	}else if(type=='reset'){
 		showToast('将执行表单重置动作')
 	}else if(type=='tip'){
-		showToast(e.currentTarget.dataset.tip)
+		showToast(dataset.tip)
 	}else if(type=='confirm'){
 		uni.showModal({
 			title: '提示',
-			content: e.currentTarget.dataset.tip,
+			content: dataset.tip,
 			showCancel: !1,
 		});
 	}else if(type=='daohang'){
 		uni.openLocation({
-			latitude: Number(e.currentTarget.dataset.lat),
-			longitude: Number(e.currentTarget.dataset.lng),
-			address:e.currentTarget.dataset.address,
+			latitude: Number(dataset.lat),
+			longitude: Number(dataset.lng),
+			address:dataset.address,
 			success: function () {
 				console.log('success');
 			}
@@ -46,25 +58,31 @@ export function navigateTo(e) {
 		thiz.$tools.makePhoneCall(e)
 	}else if(type=='previewImage'||type=='preview'){
 		uni.previewImage({
-			current: thiz.$tools.renderImage(e.currentTarget.dataset.img), // 当前显示图片的http链接
-			urls: [thiz.$tools.renderImage(e.currentTarget.dataset.img)] // 需要预览的图片http链接列表
+			current: thiz.$tools.renderImage(dataset.img), // 当前显示图片的http链接
+			urls: [thiz.$tools.renderImage(dataset.img)] // 需要预览的图片http链接列表
 		})
 	}else if(type=='copy'){
 		uni.setClipboardData({
-			data: e.currentTarget.dataset.copy,
+			data: dataset.copy,
 			showToast:false,
 			success: function () {
-				showToast(e.currentTarget.dataset.tip||'复制成功','none')
+				showToast(dataset.tip||'复制成功','none')
 			}
 		});
 	}else if(type=='xcx'){
 		uni.navigateToMiniProgram({
-			appId: e.currentTarget.dataset.appid,
-			path: e.currentTarget.dataset.path,
+			appId: dataset.appid,
+			path: dataset.path,
 			success(res) {
 				// 打开成功
 			}
 		})
+	}else if(typeof thiz[type]=='function'){
+		if(type.endsWith("Api")){
+			thiz[type]()
+		}else{
+			thiz[type](dataset)
+		}
 	}else{
 		showToast(type+'类型有待实现')
 	}
@@ -114,26 +132,41 @@ export function getPickerChildren(data,chindInex1,childIndex2){
 	}
 }
 
-export function uploadImage(thiz,field){
+
+//根据field获取数据
+export function getData(thiz,field){
+	// 通过正则表达式  查找路径数据
+	const regex = /([\w$]+)|\[(:\d)\]/g
+	const patten = field.match(regex)
+	let result = thiz // 指向调用的数据 如data
+	// 遍历路径  逐级查找  最后一级用于直接赋值
+	for (let i = 0; i < patten.length - 1; i++) {
+	  let key = patten[i]
+	  result = result[key]
+	}
+	return result[patten[patten.length - 1]]
+}
+export function uploadImage(thiz,field,fieldData){
 	uni.chooseImage({
 		sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-		sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+		sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有javascript:;
 		success: function (res) {
 			// 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
 			let tempFilePaths = res.tempFilePaths;
 			for (let i = 0; i < tempFilePaths.length; i++) {
 				uni.uploadFile({
-					url: thiz.$request.setUrl('/data/file.html'), //仅为示例，非真实的接口地址
+					url: thiz.$http.setUrl('/data/file.html'), //仅为示例，非真实的接口地址
 					filePath: tempFilePaths[0],
 					name: 'file',
 					success: function (res) {
 						let data = thiz.$tools.fromJson(res.data);
 						let url = thiz.$tools.renderImage(data.url);
-						let files = thiz[field+'Datas'].concat(url);
+						let files = getData(thiz,fieldData).concat(url);
 						thiz.setData({
-							[field+'Datas']: files,
+							[fieldData]: files,
 							[field]: (files || []).join(',').replace(/^[]/, ''),
 						});
+						
 					},
 				});
 			}

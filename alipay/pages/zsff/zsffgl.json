@@ -1,0 +1,11 @@
+{
+	"navigationBarTitleText": "知识付费个人中心",
+	"navigationBarBackgroundColor": "#07c160",
+	"defaultTitle": "",
+	"transparentTitle": "always",
+	"titlePenetrate": "YES",
+	"allowsBounceVertical": "NO",
+	"usingComponents": {
+		"diy-navbar": "/components/diy-navbar/diy-navbar"
+	}
+}

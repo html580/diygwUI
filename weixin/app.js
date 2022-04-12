@@ -3,9 +3,44 @@ require('./page-extend');
 App({
 	globalData: {
 		userInfo: null,
-		tabBar: ['/pages/index/index', '/pages/compoment/index', '/pages/form/index', '/pages/about/index'],
-		homePage: '/pages/index/index',
-		pages: ['/pages/index/index', '/pages/layout/index', '/pages/button/index', '/pages/avatar/index', '/pages/tag/index', '/pages/title/index', '/pages/grid/index', '/pages/list/index', '/pages/image/index', '/pages/swiper/index', '/pages/timeline/index', '/pages/steps/index', '/pages/floatbar/index', '/pages/form/index', '/pages/about/index', '/pages/compoment/index', '/pages/modal/index', '/pages/tab/index', '/pages/buttons/index', '/pages/rate/index', '/pages/progress/index']
+		tabBar: ['/pages/index', '/pages/compoment', '/pages/page/page', '/pages/about'],
+		homePage: '/pages/index',
+		pages: [
+			'/pages/index',
+			'/pages/page/page',
+			'/pages/app/index',
+			'/pages/app/shop',
+			'/pages/zsff/zsff',
+			'/pages/zsff/zsfflb',
+			'/pages/zsff/zsffsq',
+			'/pages/zsff/zsffgl',
+			'/pages/layout',
+			'/pages/button',
+			'/pages/avatar',
+			'/pages/tag',
+			'/pages/title',
+			'/pages/grid',
+			'/pages/list',
+			'/pages/image',
+			'/pages/swiper',
+			'/pages/timeline',
+			'/pages/steps',
+			'/pages/modal',
+			'/pages/tab',
+			'/pages/about',
+			'/pages/buttons',
+			'/pages/rate',
+			'/pages/progress',
+			'/pages/notice',
+			'/pages/absolute',
+			'/pages/collapse',
+			'/pages/audio',
+			'/pages/cubes',
+			'/pages/compoment',
+			'/pages/swipers',
+			'/pages/forms',
+			'/pages/floatbar'
+		]
 	},
 	onLaunch() {
 		wx.getSystemInfo({

@@ -67,6 +67,14 @@
                 type: String,
                 default: ''
             },
+			backUrl:{
+				type: String,
+				default: ''
+			},
+			backdelta:{
+				type:Number,
+				default:0
+			},
 			color:{
 				type: String,
 				default: ''
@@ -74,9 +82,17 @@
 		},
 		methods: {
 			BackPage() {
-				uni.navigateBack({
-					delta: 1
-				});
+				if(this.backUrl){
+				   uni.redirectTo({
+					 url: this.backUrl
+				   })
+				}else if(this.backdelta){
+				  uni.navigateBack({
+					delta: this.backdelta
+				  });
+				}else{
+				  uni.navigateBack();
+				} 
 			},
 			BackHome() {
 				if(getApp().globalData.homePage){

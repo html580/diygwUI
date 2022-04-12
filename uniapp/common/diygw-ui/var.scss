@@ -56,11 +56,22 @@ $diygw-padding: (
 
 
 $diygw-height: (
-'none': 64rpx,
+    'none': 64rpx,
     'xs': 48rpx,
-    'sm': 216rpx,
+    'sm': 56rpx,
     'md': 64rpx,
     'lg': 40px,
     'xl': 60px
 );
+
+$diygw-lineheight: (
+    'none': 24px,
+    'xs': 20px,
+    'sm': 24px,
+    'md': 28px,
+    'lg': 32px,
+    'xl': 48px
+);
+
+
 

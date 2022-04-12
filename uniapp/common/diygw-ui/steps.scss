@@ -204,7 +204,7 @@
 	}
 }
 
-scroll-view.diygw-steps {
+scroll-view .diygw-steps {
 	display: flex;
 	white-space: nowrap;
 	flex-direction: row;
@@ -214,7 +214,7 @@ scroll-view.diygw-steps {
 	}
 }
 
-scroll-view.diygw-steps .diygw-step-item {
+scroll-view .diygw-steps .diygw-step-item {
 	display: flex;
 	min-width: 120px;
 	flex-shrink: 0;

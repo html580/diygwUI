@@ -607,7 +607,7 @@ class Tools {
 			return url;
 		}
 		if (url.indexOf("/pages/" + url) != 0) {
-			url = "/pages/" + url + "/index";
+			url = "/pages/" + url + "";
 		}
 		return url;
 	}
@@ -627,6 +627,8 @@ class Tools {
 		if (e.currentTarget) {
 			var dataset = e.currentTarget.dataset;
 			phone = dataset.phone;
+		}else if(this.isObject(e) && e.phone){
+			phone = e.phone
 		}else{
 			phone = e
 		}
@@ -643,7 +645,7 @@ class Tools {
 			this.makePhoneCall(url);
 		} else {
 			if (url.startsWith("http://") || url.startsWith("https://")) {
-				const $$url = this.buildUrl("/pages/webview/index", params)
+				const $$url = this.buildUrl("/pages/webview", params)
 				return new Promise((resolve, reject) => {
 					my.navigateTo({
 						url: $$url,
@@ -656,7 +658,7 @@ class Tools {
 					url = "/" + url;
 				}
 				if (!url.startsWith("/pages/")) {
-					url = "/pages/" + url + "/index";
+					url = "/pages/" + url ;
 				}
 				if (getApp().globalData.tabBar.indexOf(url) != -1) {
 					my.switchTab({

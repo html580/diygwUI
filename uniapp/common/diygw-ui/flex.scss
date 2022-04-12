@@ -58,7 +58,9 @@
 .flex-wrap {
 	flex-wrap: wrap;
 }
-
+.flex-nowrap{
+	flex-wrap: nowrap;
+}
 .flex-wrap-reverse {
 	flex-wrap:wrap-reverse;
 }
@@ -125,9 +127,10 @@
 .items-end{
 	align-items: flex-end;
 }
-.scroll-view{
+.scroll-view,.uni-scroll-view-content{
 	overflow-x: auto;
 	flex-wrap: nowrap;
+	display: flex;
 	flex-direction: row !important;
 	[class*="diygw-col-"]{
 		flex-shrink: 0;

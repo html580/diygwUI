@@ -2,7 +2,7 @@
 export default {
     basePath: 'http://www.diygw.com',
     fileBasePath: 'http://lib.diygw.com',
-    title: 'UNIAPPUI',
+    title: 'DIYGWUI',
     debug: true,
     dashboardid:'7',
     mpid:''

@@ -9,13 +9,13 @@
 		<view class="flex align-center" :style="[textStyle]">
 			<image v-if="leftImg" class="diy-notice-img" :src="leftImg"></image>
 			<text :class="leftIcon" v-if="leftIcon" :color="computeColor"></text>
-			<view class="diy-notice-box flex1" id="diy-notice-box" >
-				<view  v-if="vertical" class="diy-notice-swiper flex1" >
+			<view class="diy-notice-box flex-sub" id="diy-notice-box">
+				<view  v-if="vertical" class="diy-notice-swiper flex-sub" >
 					<slot name="content"></slot>
 				</view>
 				<view v-else 
-					class="diy-notice-content flex1"
-					id="diy-notice-content"
+					class="diy-notice-content flex-sub"
+					:class="[elClass]"
 					:style="{
 						animationDuration: animationDuration,
 						animationPlayState: animationPlayState,
@@ -98,6 +98,7 @@ export default {
 	},
 	data() {
 		return {
+			elClass: this.$tools.guid(),
 			textWidth: 0, // 滚动的文字宽度
 			boxWidth: 0, // 供文字滚动的父盒子的宽度，和前者一起为了计算滚动速度
 			animationDuration: '10s', // 动画执行时间
@@ -150,7 +151,7 @@ export default {
 				let textQuery = new Promise((resolve, reject) => {
 					uni.createSelectorQuery()
 						.in(this)
-						.select(`#diy-notice-content`)
+						.select('.'+this.elClass)
 						.boundingClientRect()
 						.exec(ret => {
 							this.textWidth = ret[0].width;
@@ -175,6 +176,3 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-
-</style>

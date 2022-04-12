@@ -1,0 +1,8 @@
+{
+	"navigationBarTitleText": "组件",
+	"navigationBarBackgroundColor": "#07c160",
+	"defaultTitle": "",
+	"transparentTitle": "always",
+	"titlePenetrate": "YES",
+	"allowsBounceVertical": "NO"
+}

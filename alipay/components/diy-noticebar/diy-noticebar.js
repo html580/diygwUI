@@ -77,13 +77,13 @@ Component({
   },
 
   didMount() {
-      if(!this.data.vertical){
+      if(!this.props.vertical){
         let thiz = this
 				let query = [],
 					boxWidth = 0,
 					textWidth = 0;
 				let textQuery = new Promise((resolve, reject) => {
-					wx.createSelectorQuery()
+					my.createSelectorQuery()
 						.in(thiz)
 						.select(`#diy-notice-content`)
 						.boundingClientRect()
@@ -94,16 +94,17 @@ Component({
 							resolve();
 						});
 				});
-				query.push(textQuery);
+        query.push(textQuery);
+        let speed = thiz.props.speed||160
 				Promise.all(query).then(() => {
 					// 根据t=s/v(时间=路程/速度)，这里为何不需要加上#diy-notice-box的宽度，因为中设置了.diy-notice-content样式中设置了padding-left: 100%
           // 恰巧计算出来的结果中已经包含了#diy-notice-box的宽度
           thiz.setData({
-            animationDuration:`${thiz.data.textWidth / thiz.data.speed * 2 }s`,
+            animationDuration:`${thiz.data.textWidth / speed * 2 }s`,
             animationPlayState:'paused'
           })
 					setTimeout(() => {
-						if(thiz.data.playState == 'play' && thiz.data.autoplay){
+						if(thiz.props.playState===undefined||(thiz.props.playState == 'play' && thiz.props.autoplay)){
               thiz.setData({
                 animationPlayState:'running'
               })

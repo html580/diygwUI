@@ -1,42 +1,98 @@
 {
 	"pages": [
 		{
-			"path": "pages/index/index",
+			"path": "pages/index",
 			"style": {
 				"navigationBarTitleText": "首页",
-				"navigationBarBackgroundColor": "#07c160"
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/layout/index",
+			"path": "pages/page/page",
+			"style": {
+				"navigationBarTitleText": "应用页面",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/app/index",
+			"style": {
+				"navigationBarTitleText": "壁纸主页",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/app/shop",
+			"style": {
+				"navigationBarTitleText": "商城主页",
+				"navigationBarBackgroundColor": "#DC0514"
+			}
+		},
+		{
+			"path": "pages/zsff/zsff",
+			"style": {
+				"navigationBarTitleText": "知识付费首页",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/zsff/zsfflb",
+			"style": {
+				"navigationBarTitleText": "知识付费列表页",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/zsff/zsffsq",
+			"style": {
+				"navigationBarTitleText": "知识付费社圈",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/zsff/zsffgl",
+			"style": {
+				"navigationBarTitleText": "知识付费个人中心",
+				"navigationBarBackgroundColor": "#07c160",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/layout",
 			"style": {
 				"navigationBarTitleText": "布局",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/button/index",
+			"path": "pages/button",
 			"style": {
 				"navigationBarTitleText": "按钮",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/avatar/index",
+			"path": "pages/avatar",
 			"style": {
 				"navigationBarTitleText": "图标",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/tag/index",
+			"path": "pages/tag",
 			"style": {
 				"navigationBarTitleText": "标签",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/title/index",
+			"path": "pages/title",
 			"style": {
 				"navigationBarTitleText": "标题",
 				"navigationBarBackgroundColor": "#07c160",
@@ -44,70 +100,126 @@
 			}
 		},
 		{
-			"path": "pages/grid/index",
+			"path": "pages/grid",
 			"style": {
 				"navigationBarTitleText": "宫格",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/list/index",
+			"path": "pages/list",
 			"style": {
 				"navigationBarTitleText": "列表",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/image/index",
+			"path": "pages/image",
 			"style": {
 				"navigationBarTitleText": "图片",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/swiper/index",
+			"path": "pages/swiper",
 			"style": {
 				"navigationBarTitleText": "轮播",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/timeline/index",
+			"path": "pages/timeline",
 			"style": {
 				"navigationBarTitleText": "时间轴",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/steps/index",
+			"path": "pages/steps",
 			"style": {
 				"navigationBarTitleText": "步骤条",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/floatbar/index",
+			"path": "pages/modal",
 			"style": {
-				"navigationBarTitleText": "浮动框",
+				"navigationBarTitleText": "模态框",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/form/index",
+			"path": "pages/tab",
 			"style": {
-				"navigationBarTitleText": "表单",
+				"navigationBarTitleText": "选项卡",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/about/index",
+			"path": "pages/about",
 			"style": {
 				"navigationBarTitleText": "关于",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/compoment/index",
+			"path": "pages/buttons",
+			"style": {
+				"navigationBarTitleText": "按钮组",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/rate",
+			"style": {
+				"navigationBarTitleText": "星级评分",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/progress",
+			"style": {
+				"navigationBarTitleText": "进度条",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/notice",
+			"style": {
+				"navigationBarTitleText": "通知栏",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/absolute",
+			"style": {
+				"navigationBarTitleText": "绝对布局",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/collapse",
+			"style": {
+				"navigationBarTitleText": "折叠面板",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/audio",
+			"style": {
+				"navigationBarTitleText": "音频组件",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/cubes",
+			"style": {
+				"navigationBarTitleText": "魔方图片",
+				"navigationBarBackgroundColor": "#07c160"
+			}
+		},
+		{
+			"path": "pages/compoment",
 			"style": {
 				"navigationBarTitleText": "组件",
 				"navigationBarBackgroundColor": "#07c160",
@@ -115,42 +227,28 @@
 			}
 		},
 		{
-			"path": "pages/modal/index",
+			"path": "pages/swipers",
 			"style": {
-				"navigationBarTitleText": "模态框",
+				"navigationBarTitleText": "组件轮播",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/tab/index",
+			"path": "pages/forms",
 			"style": {
-				"navigationBarTitleText": "选项卡",
+				"navigationBarTitleText": "表单",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/buttons/index",
+			"path": "pages/floatbar",
 			"style": {
-				"navigationBarTitleText": "按钮组",
+				"navigationBarTitleText": "悬浮按钮",
 				"navigationBarBackgroundColor": "#07c160"
 			}
 		},
 		{
-			"path": "pages/rate/index",
-			"style": {
-				"navigationBarTitleText": "星级评分",
-				"navigationBarBackgroundColor": "#07c160"
-			}
-		},
-		{
-			"path": "pages/progress/index",
-			"style": {
-				"navigationBarTitleText": "进度条",
-				"navigationBarBackgroundColor": "#07c160"
-			}
-		},
-		{
-			"path": "pages/webview/index",
+			"path": "pages/webview",
 			"style": {
 				"navigationBarTitleText": ""
 			}
@@ -158,7 +256,7 @@
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "UNIAPPUI",
+		"navigationBarTitleText": "DIYGWUI",
 		"navigationBarBackgroundColor": "#07c160"
 	},
 	"tabBar": {
@@ -168,25 +266,25 @@
 		"backgroundColor": "#ffffff",
 		"list": [
 			{
-				"pagePath": "pages/index/index",
+				"pagePath": "pages/index",
 				"iconPath": "static/grid1c.png",
 				"selectedIconPath": "static/grid1.png",
 				"text": "元素"
 			},
 			{
-				"pagePath": "pages/compoment/index",
+				"pagePath": "pages/compoment",
 				"iconPath": "static/grid2c.png",
 				"selectedIconPath": "static/grid2.png",
 				"text": "组件"
 			},
 			{
-				"pagePath": "pages/form/index",
+				"pagePath": "pages/page/page",
 				"iconPath": "static/grid3c.png",
 				"selectedIconPath": "static/grid3.png",
-				"text": "表单"
+				"text": "页面"
 			},
 			{
-				"pagePath": "pages/about/index",
+				"pagePath": "pages/about",
 				"iconPath": "static/grid4c.png",
 				"selectedIconPath": "static/grid4.png",
 				"text": "关于"

@@ -1,11 +1,11 @@
 @import './mixins.scss';
 @import './var.scss';
-body {
+body,page {
 	--red: #e54d42;
 	--orange: #f37b1d;
 	--yellow: #fbbd08;
 	--olive: #8dc63f;
-	--green: #39b54a;
+	--green: #07c160;
 	--cyan: #1cbbb4;
 	--blue: #0081ff;
 	--purple: #6739b6;
@@ -41,6 +41,7 @@ body {
 
 	/* 阴影透明色 */
 	--ShadowSize: 0px 0px 8rpx;
+	--whiteShadow: rgba(0, 0, 0, 0.15);
 	--redShadow: rgba(204, 69, 59, 0.2);
 	--orangeShadow: rgba(217, 109, 26, 0.2);
 	--yellowShadow: rgba(224, 170, 7, 0.2);
@@ -73,7 +74,7 @@ body {
 }
 
 [class*=diygw-] {
-	font-size: var(--primary-font-size);
+	font-size: inherit;
 }
 view,
 scroll-view,
@@ -98,6 +99,14 @@ image {
 		display: table;
 	}
 }
+
+.scroll-view ::-webkit-scrollbar,.uni-scroll-view-content::-webkit-scrollbar,.scroll-view::-webkit-scrollbar,scroll-view::-webkit-scrollbar{
+	width: 0;
+	height: 0;
+	color: transparent;
+	display: none;
+}
+
 .hidden{
 	display: none;
 }
@@ -105,25 +114,56 @@ image {
 	cursor: pointer;
 }
 .container{
-  background-size: cover;
-	background-position: center;
+	background-size: cover;
+	background-position:top center;
 	min-height: 100vh;
-}	
+}
+.diygw-bg{
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+	z-index: -1;
+    bottom: 0;
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    background-size: 100% 100%;
+    background-image: var(--diygw-image);
+  }
+}
 .response {
 	width: 100%;
 	&>div {
-	    width: 100%;
-	    height: 100%;
-	    background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
 	}
 }
+.diygw-autoview{
+	position: relative;
+}
+.uni-tabbar-bottom,.uni-page-head,.uni-picker-container{
+	z-index:999999
+}
+.uni-picker-container{
+	z-index:999999 !important
+}
+.diygw-autoview{
+	position: relative;
+	overflow: hidden;
+}
+
 .diygw-absolute{
 	position: absolute !important;
-	z-index:1000;
+	z-index:999999;
 }
 .diygw-top{
 	position: fixed !important;
-	z-index:1000;
+	z-index:999999;
 	left:0px;
 	top:0px;
 	width:100%;
@@ -189,3 +229,14 @@ image {
 @import './tabs.scss';
 @import './noticebar.scss';
 @import './progress.scss';
+@import './collapse.scss';
+@import './cubes.scss';
+@import './search.scss';
+
+.diy-sticky-100{
+	width: 100% !important;
+	background-color: #fff;
+	&.diygw-absolute,.diygw-top,.diygw-bottom,.left-bottom,.left-top,.right-bottom,.right-top{
+		position: static !important;
+	}
+}

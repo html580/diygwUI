@@ -14,12 +14,20 @@
 
 .diygw-form-item {
 	width: 100%;
+	&.diygw-col-0{
+		width: auto;
+	}
 	padding: 12rpx 32rpx;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	position: relative;
-
+	&.diygw-form-item-small{
+		padding:0px 12rpx;
+		[class*=diy-icon-] {
+			height:auto !important;
+		}
+	}
 	&:after {
 		position: absolute;
 		box-sizing: border-box;
@@ -55,7 +63,7 @@
 		flex: 1;
 		display: flex;
 		box-sizing: border-box;
-		align-items: baseline;
+		align-items: center;
 		width: 100%;
 		min-width: 0;
 		margin: 0;
@@ -68,7 +76,7 @@
 		position: relative;
 		.diygw-tag,[class*="diy-icon-"]{
 			margin-right: 10rpx;
-			height: 48rpx;
+			max-height: 48rpx;
 		}
 		.icon-right{
 			width:50rpx;

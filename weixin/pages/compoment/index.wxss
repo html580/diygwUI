@@ -1,7 +1,0 @@
-.image2-clz {
-	border-bottom-left-radius: 16px;
-	overflow: hidden;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 16px;
-}

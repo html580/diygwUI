@@ -7,6 +7,10 @@
 	flex-wrap: wrap;
 	flex: 1;
 
+    &.scroll-view{
+		flex-wrap: nowrap;
+	}
+	
 	[class*="bg-"] .diygw-avatar{
 		color: #fff;
 	}
@@ -92,14 +96,11 @@
 
 .diygw-grid.diygw-actions{
 	background: inherit;
-	min-height: 120rpx;
 	align-items: center;
-	padding:6rpx 0;
 
 	button.diygw-action{
 		border: 0px;
 		background:none;
-		border-radius: 0;
 		position: relative;
 		border: 0px;
 		display: inline-flex;
@@ -167,9 +168,9 @@
 
 			.diygw-grid-icon {
 				position: absolute;
-				width: 70rpx;
+				max-width: 70rpx;
 				z-index: 2;
-				height: 70rpx;
+				max-height: 70rpx;
 				border-radius: 50%;
 				line-height:70rpx;
 				font-size: 50rpx;
@@ -180,8 +181,9 @@
 				padding: 0;
 			}
 
-			&:after {
-				content: "";
+			
+
+			&:before {
 				position: absolute;
 				width: 100rpx;
 				height: 100rpx;
@@ -189,23 +191,11 @@
 				left: 0;
 				right: 0;
 				margin: auto;
+				content: "";
 				box-shadow: 0 -4rpx 8rpx rgba(0, 0, 0, 0.08);
 				border-radius: 50rpx;
 				background-color: inherit;
 				z-index: 0;
-			}
-
-			&:before {
-				content: "";
-				position: absolute;
-				width: 100rpx;
-				height: 50rpx;
-				bottom: 50rpx;
-				left: 0;
-				right: 0;
-				margin: auto;
-				background-color: inherit;
-				z-index: 1;
 			}
 		}
 	}

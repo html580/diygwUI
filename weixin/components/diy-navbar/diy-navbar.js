@@ -43,6 +43,10 @@ Component({
       type:Number,
       value:0
     },
+	backUrl:{
+		type: String,
+		default: ''
+	},
     bgImage: {
       type: String,
       value: ''
@@ -78,21 +82,17 @@ Component({
    */
   methods: {
     BackPage() {
-      if(this.data.isHome){
-        wx.reLaunch({
-          url: '/diygw_scrm/pages/index/index',
-        })
-        return;
-      }
-      if(this.data.backdelta){
-        wx.navigateBack({
-          delta: this.data.backdelta
-        });
-      }else{
-        wx.navigateBack({
-          delta: 1
-        });
-      }
+        if(this.data.backUrl){
+    	   wx.redirectTo({
+    		 url: this.data.backUrl
+    	   })
+    	}else if(this.data.backdelta){
+    	  wx.navigateBack({
+    		delta: this.data.backdelta
+    	  });
+    	}else{
+    	  wx.navigateBack();
+    	} 
     },
     BackHome() {
       if(getApp().globalData.homePage){

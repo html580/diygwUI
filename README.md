@@ -6,9 +6,13 @@ DIY官网可视化工具做好的可视化拖拽开发工具无须编程、零�
 丰富的按钮点击事件供选择
 
 #### 文件说明
-uniapp -- 对应Uniapp多端生成源码
-weixin -- 生成微信小程序原生源码
-alipay -- 生成支持宝小程序原生源码
+##### uniapp -- 对应Uniapp多端生成源码
+##### weixin -- 生成微信小程序原生源码
+##### alipay -- 生成支付宝小程序原生源码
+##### qq -- 生成QQ小程序原生源码
+##### baidu -- 生成百度小程序原生源码
+##### bytedance -- 生成字节跳转小程序原生源码
+##### finclip -- 生成FinClip小程序原生源码
 
 更多设计前往https://www.diygw.com 设计
 
@@ -16,16 +20,29 @@ alipay -- 生成支持宝小程序原生源码
 #### 扫码体验
 
 在线演示例子：[组件库演示](https://uniapp.diygw.com) https://uniapp.diygw.com
+
 扫码体验
+
 [![](https://libs.diygw.com/upload/uniapp.png)](https://libs.diygw.com/upload/uniapp.png)
 
 在线演示例子：[仿应用市场例子](https://uniapp.diygw.com/app/#/)  https://uniapp.diygw.com/app/#/
 
 扫码体验
+
 [![](https://libs.diygw.com/upload/uniapp-app.png)](https://libs.diygw.com/upload/uniapp-app.png)
+
+小程序扫码体验
+
+[![](https://libs.diygw.com/upload/diygwcom.jpg)](https://libs.diygw.com/upload/diygwcom.jpg)
+
 
 #### 项目截图
 [![](https://libs.diygw.com/upload/exporttype.png)](https://libs.diygw.com/upload/exporttype.png)
+[![](https://libs.diygw.com/upload/ok4.png)](https://libs.diygw.com/upload/ok4.png)
+[![](https://libs.diygw.com/upload/ok5.png)](https://libs.diygw.com/upload/ok5.png)
+[![](https://libs.diygw.com/upload/ok6.png)](https://libs.diygw.com/upload/ok6.png)
+[![](https://libs.diygw.com/upload/ok7.png)](https://libs.diygw.com/upload/ok7.png)
+[![](https://libs.diygw.com/upload/1.png)](https://libs.diygw.com/upload/1.png)
 [![](https://libs.diygw.com/upload/1.png)](https://libs.diygw.com/upload/1.png)
 [![](https://libs.diygw.com/upload/2.png)](https://libs.diygw.com/upload/2.png)
 [![](https://libs.diygw.com/upload/3.png)](https://libs.diygw.com/upload/3.png)

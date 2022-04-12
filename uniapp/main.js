@@ -19,7 +19,7 @@ import Session from '@/common/Session.js'
 
 Vue.config.productionTip = false
 Vue.prototype.$tools = new Tools()
-Vue.prototype.$request = new HttpService()
+Vue.prototype.$http = new HttpService()
 Vue.prototype.$session = Session
 Vue.prototype.Validate = Validate
 Vue.prototype.setData = setData
@@ -89,7 +89,7 @@ export function createApp() {
 	const app = createSSRApp(App)
 
 	app.config.globalProperties.$tools = new Tools()
-	app.config.globalProperties.$request = new HttpService()
+	app.config.globalProperties.$http = new HttpService()
 	app.config.globalProperties.$session = Session
 
 	uni.getSystemInfo({

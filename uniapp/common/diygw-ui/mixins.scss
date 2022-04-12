@@ -1,5 +1,5 @@
 @import './var.scss';
- 
+
 @mixin set-border($type) {
   @if $type == none {
     .solid,
@@ -68,6 +68,10 @@
         .margin-#{$type} {
           margin: map-get($diygw-margin, $type) !important;
         }
+        .margin-lr-#{$type} {
+          margin-left: map-get($diygw-margin, $type) !important;
+          margin-right: map-get($diygw-margin, $type) !important;
+        }
       }
     }@else{
       @if $type == none {
@@ -93,7 +97,11 @@
         }
       }@else{
         .padding-#{$type} {
-          padding: map-get($diygw-padding, $type);
+          padding: map-get($diygw-padding, $type) !important;
+        }
+        .padding-lr-#{$type} {
+          padding-left: map-get($diygw-padding, $type) !important;
+          padding-right: map-get($diygw-padding, $type) !important;
         }
       }
     }@else{

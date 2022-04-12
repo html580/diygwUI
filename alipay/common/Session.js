@@ -29,6 +29,14 @@ var Session = {
 	getOpenId() {
 		var userInfo = this.getUser();
 		return userInfo ? userInfo.openid : null
+	},
+	
+	setValue(key,value) {
+		uni.setStorageSync(key, value);
+	},
+	
+	getValue(key){
+		return uni.getStorageSync(key) || null;
 	}
 }
 

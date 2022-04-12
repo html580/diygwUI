@@ -26,14 +26,21 @@
 		}
 	}
 	
+	&.not-remark{
+		.content{
+			flex-direction: row !important;
+			align-items: center;
+		}
+	}
 
 	.diygw-item {
 		position: relative;
 		display: flex;
 		padding: 20rpx 20rpx;
-		// justify-content: flex-end;
-  //       align-content: center;
-		// align-items: stretch;
+        justify-content: flex-end;
+		align-content: center;
+        align-items: stretch;
+		
 		.diygw-avatar{
 			flex-shrink: 0;
 			font-size: 96rpx;
@@ -42,13 +49,13 @@
 		&.col-100{
 			width: 100%;
 			&.diygw-card{
-				width: calc(100% - 40rpx);
+				width: calc(100% - 32rpx);
 			}
 		}
 		&.col-50{
 			width: 50%;
 			&.diygw-card{
-				width: calc(50% - 40rpx);
+				width: calc(50% - 32rpx);
 			}
 
 			&.solid-bottom:nth-child(2n+1)::after{
@@ -58,7 +65,7 @@
 		&.col-33{
 			width: 33.33%;
 			&.diygw-card{
-				width: calc(33.33% - 40rpx);
+				width: calc(33.33% - 32rpx);
 			}
 
 			&.solid-bottom:nth-child(3n+1)::after{
@@ -73,7 +80,7 @@
 		&.col-25{
 			width: 25%;
 			&.diygw-card{
-				width: calc(25% - 40rpx);
+				width: calc(25% - 32rpx);
 			}
 
 			&.solid-bottom:nth-child(4n+1)::after{
@@ -154,7 +161,7 @@
 		.diygw-avatar{
 			width: 48rpx !important;
 			height: 48rpx !important;
-			font-size:48px  !important;
+			font-size: 48rpx  !important;
 		}
 		.content{
 			flex-direction: row !important;

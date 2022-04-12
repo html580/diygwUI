@@ -17,12 +17,17 @@ class ServiceBase {
 		this.__initMethods()
 	}
 
+
+	
+	__initInterceptor(){
+		
+	}
 	/**
 	 * __initDefaults
 	 */
 	__initDefaults() {
 		// 方法名后缀字符串
-		this.suffix = 'Request'
+		this.suffix = ''
 
 		// 发起请求所支持的方法
 		this.instanceSource = {
@@ -72,14 +77,7 @@ class ServiceBase {
 			}
 			return promise
 		}
-		params['__isxcx__'] = '1';
-		if (!params['dashboardid']) {
-			params['dashboardid'] = __config.dashboardid;
-		}
-		if (!params['mpid']) {
-			params['mpid'] = __config.mpid;
-		}
-
+	
 
 		// 请求参数配置
 		const $$config = {
@@ -153,7 +151,15 @@ class ServiceBase {
 	 * 设置请求路径
 	 */
 	setUrl(url) {
-		return `${this.$$basePath}/${this.$$prefix}${url}`
+	    let ishttp = /^http(s)?:\/\/.*/i.test(url);
+		if(ishttp){
+			return url
+		}
+		if(url.startsWith("/")||this.$$basePath.endsWith("/")){
+			return `${this.$$basePath}${this.$$prefix}${url}`
+		}else{
+			return `${this.$$basePath}/${this.$$prefix}${url}`
+		}
 	}
 
 	/**
@@ -171,7 +177,7 @@ class ServiceBase {
 	 * 设置request拦截器
 	 */
 	setInterceptors() {
-		return [{
+		this.interceptors =  [{
 			request: (request) => {
 				request.header = request.header || {}
 				request.requestTimestamp = new Date().getTime()
@@ -208,6 +214,8 @@ class ServiceBase {
 				return responseError;
 			},
 		}]
+		this.__initInterceptor()
+		return this.interceptors
 	}
 }
 

@@ -1,0 +1,12 @@
+{
+	"navigationBarTitleText": "知识付费首页",
+	"navigationBarBackgroundColor": "#07c160",
+	"defaultTitle": "",
+	"transparentTitle": "always",
+	"titlePenetrate": "YES",
+	"allowsBounceVertical": "NO",
+	"usingComponents": {
+		"diy-navbar": "/components/diy-navbar/diy-navbar",
+		"diy-noticebar": "/components/diy-noticebar/diy-noticebar"
+	}
+}
